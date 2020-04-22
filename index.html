@@ -1,0 +1,1331 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css">
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/Mandjou_0.js"></script>
+        <script src="data/Bertoua2me_1.js"></script>
+        <script src="data/Bertoua1er_2.js"></script>
+        <script src="data/Aeroport_de_Bertoua_3.js"></script>
+        <script src="data/Carrefours_4.js"></script>
+        <script src="data/Stationsservices_5.js"></script>
+        <script src="data/Espacessportifs_6.js"></script>
+        <script src="data/Monuments_7.js"></script>
+        <script src="data/QuartiersdeBertoua_8.js"></script>
+        <script src="data/Auberges_9.js"></script>
+        <script src="data/Motels_10.js"></script>
+        <script src="data/Htels_11.js"></script>
+        <script src="data/Restaurants_12.js"></script>
+        <script src="data/images_13.js"></script>
+        <script src="data/StructuresHoteliresetrestaurants_14.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        L.control.locate().addTo(map);
+        var measureControl = new L.Control.Measure({
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        function pop_Mandjou_0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_Mandjou_0_0() {
+            return {
+                pane: 'pane_Mandjou_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(45,145,117,1.0)',
+            }
+        }
+        map.createPane('pane_Mandjou_0');
+        map.getPane('pane_Mandjou_0').style.zIndex = 400;
+        map.getPane('pane_Mandjou_0').style['mix-blend-mode'] = 'normal';
+        var layer_Mandjou_0 = new L.geoJson(json_Mandjou_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Mandjou_0',
+            onEachFeature: pop_Mandjou_0,
+            style: style_Mandjou_0_0,
+        });
+        bounds_group.addLayer(layer_Mandjou_0);
+        function pop_Bertoua2me_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_Bertoua2me_1_0() {
+            return {
+                pane: 'pane_Bertoua2me_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(151,190,173,1.0)',
+            }
+        }
+        map.createPane('pane_Bertoua2me_1');
+        map.getPane('pane_Bertoua2me_1').style.zIndex = 401;
+        map.getPane('pane_Bertoua2me_1').style['mix-blend-mode'] = 'normal';
+        var layer_Bertoua2me_1 = new L.geoJson(json_Bertoua2me_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Bertoua2me_1',
+            onEachFeature: pop_Bertoua2me_1,
+            style: style_Bertoua2me_1_0,
+        });
+        bounds_group.addLayer(layer_Bertoua2me_1);
+        function pop_Bertoua1er_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_Bertoua1er_2_0() {
+            return {
+                pane: 'pane_Bertoua1er_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(44,216,165,1.0)',
+            }
+        }
+        map.createPane('pane_Bertoua1er_2');
+        map.getPane('pane_Bertoua1er_2').style.zIndex = 402;
+        map.getPane('pane_Bertoua1er_2').style['mix-blend-mode'] = 'normal';
+        var layer_Bertoua1er_2 = new L.geoJson(json_Bertoua1er_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Bertoua1er_2',
+            onEachFeature: pop_Bertoua1er_2,
+            style: style_Bertoua1er_2_0,
+        });
+        bounds_group.addLayer(layer_Bertoua1er_2);
+        function pop_Aeroport_de_Bertoua_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_Aeroport_de_Bertoua_3_0() {
+            return {
+                pane: 'pane_Aeroport_de_Bertoua_3',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/amenity=airport.svg',
+            iconSize: [15.2, 15.2]
+        }),
+            }
+        }
+        map.createPane('pane_Aeroport_de_Bertoua_3');
+        map.getPane('pane_Aeroport_de_Bertoua_3').style.zIndex = 403;
+        map.getPane('pane_Aeroport_de_Bertoua_3').style['mix-blend-mode'] = 'normal';
+        var layer_Aeroport_de_Bertoua_3 = new L.geoJson(json_Aeroport_de_Bertoua_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Aeroport_de_Bertoua_3',
+            onEachFeature: pop_Aeroport_de_Bertoua_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Aeroport_de_Bertoua_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Aeroport_de_Bertoua_3);
+        map.addLayer(layer_Aeroport_de_Bertoua_3);
+        function pop_Carrefours_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_Carrefours_4_0() {
+            return {
+                pane: 'pane_Carrefours_4',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/place_of_worship_buddhist3.svg',
+            iconSize: [15.2, 15.2]
+        }),
+            }
+        }
+        map.createPane('pane_Carrefours_4');
+        map.getPane('pane_Carrefours_4').style.zIndex = 404;
+        map.getPane('pane_Carrefours_4').style['mix-blend-mode'] = 'normal';
+        var layer_Carrefours_4 = new L.geoJson(json_Carrefours_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Carrefours_4',
+            onEachFeature: pop_Carrefours_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Carrefours_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Carrefours_4);
+        map.addLayer(layer_Carrefours_4);
+        function pop_Stationsservices_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_Stationsservices_5_0() {
+            return {
+                pane: 'pane_Stationsservices_5',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/gas.svg',
+            iconSize: [15.2, 15.2]
+        }),
+            }
+        }
+        map.createPane('pane_Stationsservices_5');
+        map.getPane('pane_Stationsservices_5').style.zIndex = 405;
+        map.getPane('pane_Stationsservices_5').style['mix-blend-mode'] = 'normal';
+        var layer_Stationsservices_5 = new L.geoJson(json_Stationsservices_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Stationsservices_5',
+            onEachFeature: pop_Stationsservices_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Stationsservices_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Stationsservices_5);
+        map.addLayer(layer_Stationsservices_5);
+        function pop_Espacessportifs_6(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_Espacessportifs_6_0() {
+            return {
+                pane: 'pane_Espacessportifs_6',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/sport_golf.svg',
+            iconSize: [15.2, 15.2]
+        }),
+            }
+        }
+        map.createPane('pane_Espacessportifs_6');
+        map.getPane('pane_Espacessportifs_6').style.zIndex = 406;
+        map.getPane('pane_Espacessportifs_6').style['mix-blend-mode'] = 'normal';
+        var layer_Espacessportifs_6 = new L.geoJson(json_Espacessportifs_6, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Espacessportifs_6',
+            onEachFeature: pop_Espacessportifs_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Espacessportifs_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Espacessportifs_6);
+        map.addLayer(layer_Espacessportifs_6);
+        function pop_Monuments_7(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_Monuments_7_0() {
+            return {
+                pane: 'pane_Monuments_7',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/tourist_monument.svg',
+            iconSize: [15.2, 15.2]
+        }),
+            }
+        }
+        map.createPane('pane_Monuments_7');
+        map.getPane('pane_Monuments_7').style.zIndex = 407;
+        map.getPane('pane_Monuments_7').style['mix-blend-mode'] = 'normal';
+        var layer_Monuments_7 = new L.geoJson(json_Monuments_7, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Monuments_7',
+            onEachFeature: pop_Monuments_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Monuments_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Monuments_7);
+        map.addLayer(layer_Monuments_7);
+        function pop_QuartiersdeBertoua_8(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">NOM</th>\
+                        <td>' + (feature.properties['NOM'] !== null ? Autolinker.link(String(feature.properties['NOM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Surf_quast</th>\
+                        <td>' + (feature.properties['Surf_quast'] !== null ? Autolinker.link(String(feature.properties['Surf_quast'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_QuartiersdeBertoua_8_0() {
+            return {
+                pane: 'pane_QuartiersdeBertoua_8',
+                opacity: 1,
+                color: 'rgba(123,0,0,1.0)',
+                dashArray: '1,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_QuartiersdeBertoua_8');
+        map.getPane('pane_QuartiersdeBertoua_8').style.zIndex = 408;
+        map.getPane('pane_QuartiersdeBertoua_8').style['mix-blend-mode'] = 'normal';
+        var layer_QuartiersdeBertoua_8 = new L.geoJson(json_QuartiersdeBertoua_8, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_QuartiersdeBertoua_8',
+            onEachFeature: pop_QuartiersdeBertoua_8,
+            style: style_QuartiersdeBertoua_8_0,
+        });
+        bounds_group.addLayer(layer_QuartiersdeBertoua_8);
+        map.addLayer(layer_QuartiersdeBertoua_8);
+        function pop_Auberges_9(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Nom</th>\
+                        <td>' + (feature.properties['Nom'] !== null ? Autolinker.link(String(feature.properties['Nom'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Type</th>\
+                        <td>' + (feature.properties['Type'] !== null ? Autolinker.link(String(feature.properties['Type'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nb_chambres</th>\
+                        <td>' + (feature.properties['Nb_chambres'] !== null ? Autolinker.link(String(feature.properties['Nb_chambres'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chambres Climatisees</th>\
+                        <td>' + (feature.properties['Chambres Climatisees'] !== null ? Autolinker.link(String(feature.properties['Chambres Climatisees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chambres ventilees</th>\
+                        <td>' + (feature.properties['Chambres ventilees'] !== null ? Autolinker.link(String(feature.properties['Chambres ventilees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chambres Televisees</th>\
+                        <td>' + (feature.properties['Chambres Televisees'] !== null ? Autolinker.link(String(feature.properties['Chambres Televisees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Prix min nuitee</th>\
+                        <td>' + (feature.properties['Prix min nuitee'] !== null ? Autolinker.link(String(feature.properties['Prix min nuitee'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Prix max nuitee</th>\
+                        <td>' + (feature.properties['Prix max nuitee'] !== null ? Autolinker.link(String(feature.properties['Prix max nuitee'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Groupe_electrogene</th>\
+                        <td>' + (feature.properties['Groupe_electrogene'] !== null ? Autolinker.link(String(feature.properties['Groupe_electrogene'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Source_eau</th>\
+                        <td>' + (feature.properties['Source_eau'] !== null ? Autolinker.link(String(feature.properties['Source_eau'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Existence_Piscine</th>\
+                        <td>' + (feature.properties['Existence_Piscine'] !== null ? Autolinker.link(String(feature.properties['Existence_Piscine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Exis_Bar</th>\
+                        <td>' + (feature.properties['Exis_Bar'] !== null ? Autolinker.link(String(feature.properties['Exis_Bar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Exis_Restaurant</th>\
+                        <td>' + (feature.properties['Exis_Restaurant'] !== null ? Autolinker.link(String(feature.properties['Exis_Restaurant'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Existence_Vigiles</th>\
+                        <td>' + (feature.properties['Existence_Vigiles'] !== null ? Autolinker.link(String(feature.properties['Existence_Vigiles'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Existence Wifi</th>\
+                        <td>' + (feature.properties['Existence Wifi'] !== null ? Autolinker.link(String(feature.properties['Existence Wifi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Capacite_parking</th>\
+                        <td>' + (feature.properties['Capacite_parking'] !== null ? Autolinker.link(String(feature.properties['Capacite_parking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cap_Sal_conference</th>\
+                        <td>' + (feature.properties['Cap_Sal_conference'] !== null ? Autolinker.link(String(feature.properties['Cap_Sal_conference'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cap_Sal_fete</th>\
+                        <td>' + (feature.properties['Cap_Sal_fete'] !== null ? Autolinker.link(String(feature.properties['Cap_Sal_fete'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Superficie Chambre(en m�)</th>\
+                        <td>' + (feature.properties['Superficie Chambre(en m�)'] !== null ? Autolinker.link(String(feature.properties['Superficie Chambre(en m�)'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telephone</th>\
+                        <td>' + (feature.properties['Telephone'] !== null ? Autolinker.link(String(feature.properties['Telephone'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Longitude</th>\
+                        <td>' + (feature.properties['Longitude'] !== null ? Autolinker.link(String(feature.properties['Longitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Latitude</th>\
+                        <td>' + (feature.properties['Latitude'] !== null ? Autolinker.link(String(feature.properties['Latitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quartier</th>\
+                        <td>' + (feature.properties['Quartier'] !== null ? Autolinker.link(String(feature.properties['Quartier'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lieu dit</th>\
+                        <td>' + (feature.properties['Lieu dit'] !== null ? Autolinker.link(String(feature.properties['Lieu dit'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Auberges_9_0() {
+            return {
+                pane: 'pane_Auberges_9',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/accommodation_hotel2.svg',
+            iconSize: [15.2, 15.2]
+        }),
+            }
+        }
+        map.createPane('pane_Auberges_9');
+        map.getPane('pane_Auberges_9').style.zIndex = 409;
+        map.getPane('pane_Auberges_9').style['mix-blend-mode'] = 'normal';
+        var layer_Auberges_9 = new L.geoJson(json_Auberges_9, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Auberges_9',
+            onEachFeature: pop_Auberges_9,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Auberges_9_0(feature));
+            },
+        });
+        var cluster_Auberges_9 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_Auberges_9.addLayer(layer_Auberges_9);
+
+        bounds_group.addLayer(layer_Auberges_9);
+        cluster_Auberges_9.addTo(map);
+        function pop_Motels_10(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Nom</th>\
+                        <td>' + (feature.properties['Nom'] !== null ? Autolinker.link(String(feature.properties['Nom'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nb_chambres</th>\
+                        <td>' + (feature.properties['Nb_chambres'] !== null ? Autolinker.link(String(feature.properties['Nb_chambres'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chambres Climatisees</th>\
+                        <td>' + (feature.properties['Chambres Climatisees'] !== null ? Autolinker.link(String(feature.properties['Chambres Climatisees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chambres ventilees</th>\
+                        <td>' + (feature.properties['Chambres ventilees'] !== null ? Autolinker.link(String(feature.properties['Chambres ventilees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chambres Televisees</th>\
+                        <td>' + (feature.properties['Chambres Televisees'] !== null ? Autolinker.link(String(feature.properties['Chambres Televisees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Prix min nuitee</th>\
+                        <td>' + (feature.properties['Prix min nuitee'] !== null ? Autolinker.link(String(feature.properties['Prix min nuitee'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Prix max nuitee</th>\
+                        <td>' + (feature.properties['Prix max nuitee'] !== null ? Autolinker.link(String(feature.properties['Prix max nuitee'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Groupe_electrogene</th>\
+                        <td>' + (feature.properties['Groupe_electrogene'] !== null ? Autolinker.link(String(feature.properties['Groupe_electrogene'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Source_eau</th>\
+                        <td>' + (feature.properties['Source_eau'] !== null ? Autolinker.link(String(feature.properties['Source_eau'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Exis_Bar</th>\
+                        <td>' + (feature.properties['Exis_Bar'] !== null ? Autolinker.link(String(feature.properties['Exis_Bar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Exis_Restaurant</th>\
+                        <td>' + (feature.properties['Exis_Restaurant'] !== null ? Autolinker.link(String(feature.properties['Exis_Restaurant'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Existence_Vigiles</th>\
+                        <td>' + (feature.properties['Existence_Vigiles'] !== null ? Autolinker.link(String(feature.properties['Existence_Vigiles'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Existence Wifi</th>\
+                        <td>' + (feature.properties['Existence Wifi'] !== null ? Autolinker.link(String(feature.properties['Existence Wifi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Capacite_parking</th>\
+                        <td>' + (feature.properties['Capacite_parking'] !== null ? Autolinker.link(String(feature.properties['Capacite_parking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Superficie Chambre(en m�)</th>\
+                        <td>' + (feature.properties['Superficie Chambre(en m�)'] !== null ? Autolinker.link(String(feature.properties['Superficie Chambre(en m�)'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telephone</th>\
+                        <td>' + (feature.properties['Telephone'] !== null ? Autolinker.link(String(feature.properties['Telephone'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Longitude</th>\
+                        <td>' + (feature.properties['Longitude'] !== null ? Autolinker.link(String(feature.properties['Longitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Latitude</th>\
+                        <td>' + (feature.properties['Latitude'] !== null ? Autolinker.link(String(feature.properties['Latitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quartier</th>\
+                        <td>' + (feature.properties['Quartier'] !== null ? Autolinker.link(String(feature.properties['Quartier'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lieu dit</th>\
+                        <td>' + (feature.properties['Lieu dit'] !== null ? Autolinker.link(String(feature.properties['Lieu dit'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Motels_10_0() {
+            return {
+                pane: 'pane_Motels_10',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/accommodation_hotel.svg',
+            iconSize: [16.72, 16.72]
+        }),
+            }
+        }
+        map.createPane('pane_Motels_10');
+        map.getPane('pane_Motels_10').style.zIndex = 410;
+        map.getPane('pane_Motels_10').style['mix-blend-mode'] = 'normal';
+        var layer_Motels_10 = new L.geoJson(json_Motels_10, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Motels_10',
+            onEachFeature: pop_Motels_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Motels_10_0(feature));
+            },
+        });
+        var cluster_Motels_10 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_Motels_10.addLayer(layer_Motels_10);
+
+        bounds_group.addLayer(layer_Motels_10);
+        cluster_Motels_10.addTo(map);
+        function pop_Htels_11(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Nom</th>\
+                        <td>' + (feature.properties['Nom'] !== null ? Autolinker.link(String(feature.properties['Nom'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cat�gorie</th>\
+                        <td>' + (feature.properties['Cat�gorie'] !== null ? Autolinker.link(String(feature.properties['Cat�gorie'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nb_chambres</th>\
+                        <td>' + (feature.properties['Nb_chambres'] !== null ? Autolinker.link(String(feature.properties['Nb_chambres'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chambres Climatisees</th>\
+                        <td>' + (feature.properties['Chambres Climatisees'] !== null ? Autolinker.link(String(feature.properties['Chambres Climatisees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chambres ventilees</th>\
+                        <td>' + (feature.properties['Chambres ventilees'] !== null ? Autolinker.link(String(feature.properties['Chambres ventilees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Chambres Televisees</th>\
+                        <td>' + (feature.properties['Chambres Televisees'] !== null ? Autolinker.link(String(feature.properties['Chambres Televisees'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Prix min nuitee</th>\
+                        <td>' + (feature.properties['Prix min nuitee'] !== null ? Autolinker.link(String(feature.properties['Prix min nuitee'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Prix max nuitee</th>\
+                        <td>' + (feature.properties['Prix max nuitee'] !== null ? Autolinker.link(String(feature.properties['Prix max nuitee'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Groupe_electrogene</th>\
+                        <td>' + (feature.properties['Groupe_electrogene'] !== null ? Autolinker.link(String(feature.properties['Groupe_electrogene'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Source_eau</th>\
+                        <td>' + (feature.properties['Source_eau'] !== null ? Autolinker.link(String(feature.properties['Source_eau'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Existence_Piscine</th>\
+                        <td>' + (feature.properties['Existence_Piscine'] !== null ? Autolinker.link(String(feature.properties['Existence_Piscine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Exis_Bar</th>\
+                        <td>' + (feature.properties['Exis_Bar'] !== null ? Autolinker.link(String(feature.properties['Exis_Bar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Exis_Restaurant</th>\
+                        <td>' + (feature.properties['Exis_Restaurant'] !== null ? Autolinker.link(String(feature.properties['Exis_Restaurant'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Existence_Vigiles</th>\
+                        <td>' + (feature.properties['Existence_Vigiles'] !== null ? Autolinker.link(String(feature.properties['Existence_Vigiles'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Existence Wifi</th>\
+                        <td>' + (feature.properties['Existence Wifi'] !== null ? Autolinker.link(String(feature.properties['Existence Wifi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Capacite_parking</th>\
+                        <td>' + (feature.properties['Capacite_parking'] !== null ? Autolinker.link(String(feature.properties['Capacite_parking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cap_Sal_conference</th>\
+                        <td>' + (feature.properties['Cap_Sal_conference'] !== null ? Autolinker.link(String(feature.properties['Cap_Sal_conference'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cap_Sal_fete</th>\
+                        <td>' + (feature.properties['Cap_Sal_fete'] !== null ? Autolinker.link(String(feature.properties['Cap_Sal_fete'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Superficie Chambre(en m�)</th>\
+                        <td>' + (feature.properties['Superficie Chambre(en m�)'] !== null ? Autolinker.link(String(feature.properties['Superficie Chambre(en m�)'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telephone</th>\
+                        <td>' + (feature.properties['Telephone'] !== null ? Autolinker.link(String(feature.properties['Telephone'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Longitude</th>\
+                        <td>' + (feature.properties['Longitude'] !== null ? Autolinker.link(String(feature.properties['Longitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Latitude</th>\
+                        <td>' + (feature.properties['Latitude'] !== null ? Autolinker.link(String(feature.properties['Latitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quartier</th>\
+                        <td>' + (feature.properties['Quartier'] !== null ? Autolinker.link(String(feature.properties['Quartier'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lieu dit</th>\
+                        <td>' + (feature.properties['Lieu dit'] !== null ? Autolinker.link(String(feature.properties['Lieu dit'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Htels_11_0() {
+            return {
+                pane: 'pane_Htels_11',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/house.svg',
+            iconSize: [22.04, 22.04]
+        }),
+            }
+        }
+        map.createPane('pane_Htels_11');
+        map.getPane('pane_Htels_11').style.zIndex = 411;
+        map.getPane('pane_Htels_11').style['mix-blend-mode'] = 'normal';
+        var layer_Htels_11 = new L.geoJson(json_Htels_11, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Htels_11',
+            onEachFeature: pop_Htels_11,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Htels_11_0(feature));
+            },
+        });
+        var cluster_Htels_11 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_Htels_11.addLayer(layer_Htels_11);
+
+        bounds_group.addLayer(layer_Htels_11);
+        cluster_Htels_11.addTo(map);
+        function pop_Restaurants_12(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Nom</th>\
+                        <td>' + (feature.properties['Nom'] !== null ? Autolinker.link(String(feature.properties['Nom'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cat�gorie</th>\
+                        <td>' + (feature.properties['Cat�gorie'] !== null ? Autolinker.link(String(feature.properties['Cat�gorie'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Type_decoration</th>\
+                        <td>' + (feature.properties['Type_decoration'] !== null ? Autolinker.link(String(feature.properties['Type_decoration'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Type_cuisine</th>\
+                        <td>' + (feature.properties['Type_cuisine'] !== null ? Autolinker.link(String(feature.properties['Type_cuisine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Type_repas</th>\
+                        <td>' + (feature.properties['Type_repas'] !== null ? Autolinker.link(String(feature.properties['Type_repas'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nb_places</th>\
+                        <td>' + (feature.properties['Nb_places'] !== null ? Autolinker.link(String(feature.properties['Nb_places'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telephone</th>\
+                        <td>' + (feature.properties['Telephone'] !== null ? Autolinker.link(String(feature.properties['Telephone'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Heure de fonctionnement</th>\
+                        <td>' + (feature.properties['Heure de fonctionnement'] !== null ? Autolinker.link(String(feature.properties['Heure de fonctionnement'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Jours_ouvrables</th>\
+                        <td>' + (feature.properties['Jours_ouvrables'] !== null ? Autolinker.link(String(feature.properties['Jours_ouvrables'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Prix_min_plat</th>\
+                        <td>' + (feature.properties['Prix_min_plat'] !== null ? Autolinker.link(String(feature.properties['Prix_min_plat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Prix_max_plat</th>\
+                        <td>' + (feature.properties['Prix_max_plat'] !== null ? Autolinker.link(String(feature.properties['Prix_max_plat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">climatisation</th>\
+                        <td>' + (feature.properties['climatisation'] !== null ? Autolinker.link(String(feature.properties['climatisation'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Capacite_parking</th>\
+                        <td>' + (feature.properties['Capacite_parking'] !== null ? Autolinker.link(String(feature.properties['Capacite_parking'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Televiseur</th>\
+                        <td>' + (feature.properties['Televiseur'] !== null ? Autolinker.link(String(feature.properties['Televiseur'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Menu</th>\
+                        <td>' + (feature.properties['Menu'] !== null ? Autolinker.link(String(feature.properties['Menu'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Longitude</th>\
+                        <td>' + (feature.properties['Longitude'] !== null ? Autolinker.link(String(feature.properties['Longitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Latitude</th>\
+                        <td>' + (feature.properties['Latitude'] !== null ? Autolinker.link(String(feature.properties['Latitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quartier</th>\
+                        <td>' + (feature.properties['Quartier'] !== null ? Autolinker.link(String(feature.properties['Quartier'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lieu dit</th>\
+                        <td>' + (feature.properties['Lieu dit'] !== null ? Autolinker.link(String(feature.properties['Lieu dit'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Autre</th>\
+                        <td>' + (feature.properties['Autre'] !== null ? Autolinker.link(String(feature.properties['Autre'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Restaurants_12_0() {
+            return {
+                pane: 'pane_Restaurants_12',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/amenity=restaurant.svg',
+            iconSize: [15.2, 15.2]
+        }),
+            }
+        }
+        map.createPane('pane_Restaurants_12');
+        map.getPane('pane_Restaurants_12').style.zIndex = 412;
+        map.getPane('pane_Restaurants_12').style['mix-blend-mode'] = 'normal';
+        var layer_Restaurants_12 = new L.geoJson(json_Restaurants_12, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Restaurants_12',
+            onEachFeature: pop_Restaurants_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Restaurants_12_0(feature));
+            },
+        });
+        var cluster_Restaurants_12 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_Restaurants_12.addLayer(layer_Restaurants_12);
+
+        bounds_group.addLayer(layer_Restaurants_12);
+        cluster_Restaurants_12.addTo(map);
+        function pop_images_13(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Camera Model'] !== null ? Autolinker.link(String(feature.properties['Camera Model'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Azimuth'] !== null ? Autolinker.link(String(feature.properties['Azimuth'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Lon'] !== null ? Autolinker.link(String(feature.properties['Lon'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Date'] !== null ? Autolinker.link(String(feature.properties['Date'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Time'] !== null ? Autolinker.link(String(feature.properties['Time'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? Autolinker.link(String(feature.properties['ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['North'] !== null ? Autolinker.link(String(feature.properties['North'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Path'] !== null ? Autolinker.link(String(feature.properties['Path'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Lat'] !== null ? Autolinker.link(String(feature.properties['Lat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Camera Maker'] !== null ? Autolinker.link(String(feature.properties['Camera Maker'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Altitude'] !== null ? Autolinker.link(String(feature.properties['Altitude'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_images_13_0() {
+            return {
+                pane: 'pane_images_13',
+                shape: 'square',
+                radius: 28.0,
+                opacity: 1,
+                color: 'rgba(97,97,97,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+            }
+        }
+        function style_images_13_1() {
+            return {
+                pane: 'pane_images_13',
+                shape: 'triangle',
+                radius: 10.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(97,97,97,1.0)',
+            }
+        }
+        function style_images_13_2() {
+            return {
+                pane: 'pane_images_13',
+                shape: 'triangle',
+                radius: 14.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(97,97,97,1.0)',
+            }
+        }
+        function style_images_13_3() {
+            return {
+                pane: 'pane_images_13',
+                shape: 'square',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(97,97,97,1.0)',
+            }
+        }
+        map.createPane('pane_images_13');
+        map.getPane('pane_images_13').style.zIndex = 413;
+        map.getPane('pane_images_13').style['mix-blend-mode'] = 'normal';
+        var layer_images_13 = new L.geoJson.multiStyle(json_images_13, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_images_13',
+            onEachFeature: pop_images_13,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_images_13_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_images_13_1(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_images_13_2(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_images_13_3(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_images_13);
+        function pop_StructuresHoteliresetrestaurants_14(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">NOM</th>\
+                        <td>' + (feature.properties['NOM'] !== null ? Autolinker.link(String(feature.properties['NOM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TYPE DE STRUCTURE</th>\
+                        <td>' + (feature.properties['TYPE DE STRUCTURE'] !== null ? Autolinker.link(String(feature.properties['TYPE DE STRUCTURE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CATEGORIE</th>\
+                        <td>' + (feature.properties['CATEGORIE'] !== null ? Autolinker.link(String(feature.properties['CATEGORIE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Contact</th>\
+                        <td>' + (feature.properties['Contact'] !== null ? Autolinker.link(String(feature.properties['Contact'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LONGITUDE</th>\
+                        <td>' + (feature.properties['LONGITUDE'] !== null ? Autolinker.link(String(feature.properties['LONGITUDE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LATITUDE</th>\
+                        <td>' + (feature.properties['LATITUDE'] !== null ? Autolinker.link(String(feature.properties['LATITUDE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">QUARTIER</th>\
+                        <td>' + (feature.properties['QUARTIER'] !== null ? Autolinker.link(String(feature.properties['QUARTIER'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LIEU_DIT</th>\
+                        <td>' + (feature.properties['LIEU_DIT'] !== null ? Autolinker.link(String(feature.properties['LIEU_DIT'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_StructuresHoteliresetrestaurants_14_0() {
+            return {
+                pane: 'pane_StructuresHoteliresetrestaurants_14',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/accommodation_alpinehut.svg',
+            iconSize: [15.96, 15.96]
+        }),
+            }
+        }
+        map.createPane('pane_StructuresHoteliresetrestaurants_14');
+        map.getPane('pane_StructuresHoteliresetrestaurants_14').style.zIndex = 414;
+        map.getPane('pane_StructuresHoteliresetrestaurants_14').style['mix-blend-mode'] = 'normal';
+        var layer_StructuresHoteliresetrestaurants_14 = new L.geoJson(json_StructuresHoteliresetrestaurants_14, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_StructuresHoteliresetrestaurants_14',
+            onEachFeature: pop_StructuresHoteliresetrestaurants_14,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_StructuresHoteliresetrestaurants_14_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_StructuresHoteliresetrestaurants_14);
+        map.addLayer(layer_StructuresHoteliresetrestaurants_14);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/StructuresHoteliresetrestaurants_14.png" /> Structures Hotelières et restaurants': layer_StructuresHoteliresetrestaurants_14,'<img src="legend/images_13.png" /> images': layer_images_13,'<img src="legend/Restaurants_12.png" /> Restaurants': cluster_Restaurants_12,'<img src="legend/Htels_11.png" /> Hôtels': cluster_Htels_11,'<img src="legend/Motels_10.png" /> Motels': cluster_Motels_10,'<img src="legend/Auberges_9.png" /> Auberges': cluster_Auberges_9,'<img src="legend/QuartiersdeBertoua_8.png" /> Quartiers de Bertoua': layer_QuartiersdeBertoua_8,'<img src="legend/Monuments_7.png" /> Monuments': layer_Monuments_7,'<img src="legend/Espacessportifs_6.png" /> Espaces sportifs': layer_Espacessportifs_6,'<img src="legend/Stationsservices_5.png" /> Stations services': layer_Stationsservices_5,'<img src="legend/Carrefours_4.png" /> Carrefours': layer_Carrefours_4,'<img src="legend/Aeroport_de_Bertoua_3.png" /> Aeroport_de_ Bertoua': layer_Aeroport_de_Bertoua_3,'<img src="legend/Bertoua1er_2.png" /> Bertoua 1er': layer_Bertoua1er_2,'<img src="legend/Bertoua2me_1.png" /> Bertoua 2ème': layer_Bertoua2me_1,'<img src="legend/Mandjou_0.png" /> Mandjou': layer_Mandjou_0,}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_QuartiersdeBertoua_8.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['NOM'] !== null?String('<div style="color: #881e1e; font-size: 12pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['NOM']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_QuartiersdeBertoua_8'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_Auberges_9.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Nom'] !== null?String('<div style="color: #000000; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Nom']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Auberges_9'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_Motels_10.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Nom'] !== null?String('<div style="color: #8736d7; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Nom']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Motels_10'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_Htels_11.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Nom'] !== null?String('<div style="color: #000088; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Nom']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Htels_11'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_Restaurants_12.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Nom'] !== null?String('<div style="color: #fe1500; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Nom']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Restaurants_12'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_QuartiersdeBertoua_8,layer_Auberges_9,layer_Motels_10,layer_Htels_11,layer_Restaurants_12]);
+        map.on("zoomend", function(){
+            resetLabels([layer_QuartiersdeBertoua_8,layer_Auberges_9,layer_Motels_10,layer_Htels_11,layer_Restaurants_12]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_QuartiersdeBertoua_8,layer_Auberges_9,layer_Motels_10,layer_Htels_11,layer_Restaurants_12]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_QuartiersdeBertoua_8,layer_Auberges_9,layer_Motels_10,layer_Htels_11,layer_Restaurants_12]);
+        });
+        </script>
+    </body>
+</html>
